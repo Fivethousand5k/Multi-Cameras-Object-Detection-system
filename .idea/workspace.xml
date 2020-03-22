@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="eaa81dd3-6a31-4335-8941-a228522e1ab9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/GUI/resources/blue.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/resources/icons/dome-camera1.1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/resources/icons/dome-camera1.2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/resources/icons/dome-camera1.7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/resources/icons/dome-camera1.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/resources/icons/file2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/resources/icons/file3.1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/resources/icons/file3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/resources/yellowwhite.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VideoPlayer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/resources/icons/dome-camera (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/resources/icons/dome-camera1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/resources/icons/file (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/resources/icons/file1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI_myMainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_myMainWindow.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Fivethousand &lt;1071824055@qq.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1YhzuXpuj63eIRb5luLbgaXIQgC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\python-tasks\WHU-CSTECH\helmet_detector\checkpoints" />
+      <recent name="E:\python-tasks\WHU-CSTECH\offline_videos" />
+      <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources" />
+      <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources\icons" />
+      <recent name="E:\python-tasks\WHU-CSTECH" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.GUI_myMainWindow (1)">
+    <configuration name="GUI_myMainWindow (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="WHU-CSTECH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI_myMainWindow.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GUI_myMainWindow" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="WHU-CSTECH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/GUI_myMainWindow.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MyDetector" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="WHU-CSTECH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MyDetector.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="VideoPlayer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="WHU-CSTECH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VideoPlayer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="WHU-CSTECH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.GUI_myMainWindow (1)" />
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.VideoPlayer" />
+      <item itemvalue="Python.MyDetector" />
+      <item itemvalue="Python.GUI_myMainWindow" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.GUI_myMainWindow (1)" />
+        <item itemvalue="Python.MyDetector" />
+        <item itemvalue="Python.GUI_myMainWindow" />
+        <item itemvalue="Python.VideoPlayer" />
+        <item itemvalue="Python.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eaa81dd3-6a31-4335-8941-a228522e1ab9" name="Default Changelist" comment="" />
+      <created>1583409836790</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583409836790</updated>
+    </task>
+    <task id="LOCAL-00001" summary="intialization">
+      <created>1583411701033</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583411701033</updated>
+    </task>
+    <task id="LOCAL-00002" summary="intialization">
+      <created>1583411742933</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583411742933</updated>
+    </task>
+    <task id="LOCAL-00003" summary="intialization">
+      <created>1583412160496</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1583412160496</updated>
+    </task>
+    <task id="LOCAL-00004" summary="intialization">
+      <created>1583412234941</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1583412234941</updated>
+    </task>
+    <task id="LOCAL-00005" summary="主界面UI">
+      <created>1583413024412</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1583413024412</updated>
+    </task>
+    <task id="LOCAL-00006" summary="主界面UI">
+      <created>1583414745817</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1583414745817</updated>
+    </task>
+    <task id="LOCAL-00007" summary="主界面UI">
+      <created>1583474430439</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1583474430439</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="intialization" />
+    <MESSAGE value="主界面UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="主界面UI" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="223" y="60" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584804307042">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="60" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1584804307042" />
+    <state x="481" y="198" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584710532507">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="481" y="198" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1584710532507" />
+    <state x="505" y="48" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1583412613130">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="505" y="48" key="#com.intellij.ide.macro.MacrosDialog/0.0.1536.824@0.0.1536.824" timestamp="1583412613130" />
+    <state x="523" y="207" key="#com.intellij.tools.ToolEditorDialog" timestamp="1583420785452">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="523" y="207" key="#com.intellij.tools.ToolEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1583420785452" />
+    <state x="343" y="0" width="932" height="824" key="CommitChangelistDialog2" timestamp="1583474428226">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="343" y="0" width="932" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583474428226" />
+    <state width="1392" height="546" key="DebuggerActiveHint" timestamp="1584863239923">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1392" height="546" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1584863239923" />
+    <state x="499" y="110" key="FileChooserDialogImpl" timestamp="1583469635322">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="110" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1583469635322" />
+    <state width="1510" height="187" key="GridCell.Tab.0.bottom" timestamp="1584872284320">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1510" height="187" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584872284320" />
+    <state width="1510" height="187" key="GridCell.Tab.0.center" timestamp="1584872284320">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1510" height="187" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584872284320" />
+    <state width="1510" height="187" key="GridCell.Tab.0.left" timestamp="1584872284320">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1510" height="187" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584872284320" />
+    <state width="1510" height="187" key="GridCell.Tab.0.right" timestamp="1584872284320">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1510" height="187" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584872284320" />
+    <state width="1510" height="240" key="GridCell.Tab.1.bottom" timestamp="1584872284262">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1510" height="240" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584872284262" />
+    <state width="1510" height="240" key="GridCell.Tab.1.center" timestamp="1584872284261">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1510" height="240" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1584872284261" />
+    <state width="1510" height="240" key="GridCell.Tab.1.left" timestamp="1584872284261">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1510" height="240" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1584872284261" />
+    <state width="1510" height="240" key="GridCell.Tab.1.right" timestamp="1584872284262">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1510" height="240" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1584872284262" />
+    <state x="154" y="0" key="SettingsEditor" timestamp="1584767759773">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="154" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1584767759773" />
+    <state x="261" y="80" key="Vcs.Push.Dialog.v2" timestamp="1583474433881">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="261" y="80" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1583474433881" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/helmet_detector/utils/utils.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/MyDetector.py</url>
+          <line>42</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
