@@ -24,10 +24,12 @@ from matplotlib.ticker import NullLocator
 
 model_def = "helmet_detector/config/yolov3-custom.cfg"  # 模型的config
 img_size = 416  # size of each image dimension
-weights_path = "helmet_detector/checkpoints/yolov3_ckpt_50.pth"  # checkpoint
+weights_path = "helmet_detector/checkpoints/yolov3_ckpt_310.pth"  # checkpoint
 class_path = "helmet_detector/data/custom/classes.names"            #类别文件
-conf_thres=0.8          #object confidence threshold
+conf_thres=0.9          #object confidence threshold
 nms_thres=0.4             #iou thresshold for non-maximum suppression
+names=['hat','person']
+colors=[[144, 238, 144],[220,20,60]]
 
 class Helmet_Detector():
     def __init__(self):
@@ -40,13 +42,18 @@ class Helmet_Detector():
         self.model.eval()                   #set in eval mode
 
     def transform_to_tensor(self,img):
+
         img = transforms.ToTensor()(img)
-        # Pad to square resolution
+        # Pad to square resolutio
         img, _ = pad_to_square(img, 0)
         # Resize
         img = resize(img, img_size)
         img=torch.stack([img], 0, out=None)
+        # pre_time = time.time()
         img = Variable(img.type(self.Tensor))
+        # post_time = time.time()
+
+        # print(datetime.timedelta(seconds=post_time - pre_time))
 
         return img
 
@@ -58,24 +65,24 @@ class Helmet_Detector():
         assert isinstance(input_img, np.ndarray), "input must be a numpy array!"
         tensor_img=self.transform_to_tensor(input_img)
 
-        # Get detections
-        prev_time = time.time()
-        with torch.no_grad():
-            detections = self.model(tensor_img)
-            detections = non_max_suppression(detections, conf_thres, nms_thres)
-        post_time = time.time()
-        print(datetime.timedelta(seconds=post_time - prev_time))
-
-        if detections[0] is not None:
-            # Rescale boxes to original image
-            detections = rescale_boxes(detections[0], img_size, input_img.shape[:2])
-            unique_labels = detections[:, -1].cpu().unique()
-            n_cls_preds = len(unique_labels)
-            # bbox_colors = random.sample(colors, n_cls_preds)
-            for x1, y1, x2, y2, conf, cls_conf, cls_pred in detections:
-                cv2.rectangle(input_img, (x1, y1), (x2, y2), (144, 238, 144), 10)
-                # cv2.putText(img, label, (x1, y1 + t_size[1] + 4), cv2.FONT_HERSHEY_PLAIN, 1, [255, 255, 255], 1)
-
+        # # Get detections
+        # prev_time = time.time()
+        # with torch.no_grad():
+        #     detections = self.model(tensor_img)
+        #     detections = non_max_suppression(detections, conf_thres, nms_thres)
+        #
+        # if detections[0] is not None:
+        #     # Rescale boxes to original image
+        #     detections = rescale_boxes(detections[0], img_size, input_img.shape[:2])
+        #     unique_labels = detections[:, -1].cpu().unique()
+        #     n_cls_preds = len(unique_labels)
+        #     # bbox_colors = random.sample(colors, n_cls_preds)
+        #     for x1, y1, x2, y2, conf, cls_conf, cls_pred in detections:
+        #         cv2.rectangle(input_img, (x1, y1), (x2, y2), colors[int(cls_pred)], 10)
+        #         cv2.putText(input_img, names[int(cls_pred)], (x1, y1-10), cv2.FONT_HERSHEY_PLAIN, 3, colors[int(cls_pred)], 2)
+        #
+        # post_time = time.time()
+        # print(datetime.timedelta(seconds=post_time - prev_time))
         return input_img
 
                 # plt.text(

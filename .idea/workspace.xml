@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eaa81dd3-6a31-4335-8941-a228522e1ab9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GUI/resources/blue.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/resources/icons/dome-camera1.1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/resources/icons/dome-camera1.2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/resources/icons/dome-camera1.7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/resources/icons/dome-camera1.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/resources/icons/file2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/resources/icons/file3.1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/resources/icons/file3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/resources/yellowwhite.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VideoPlayer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+    <list default="true" id="eaa81dd3-6a31-4335-8941-a228522e1ab9" name="Default Changelist" comment="主界面UI">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/resources/icons/dome-camera (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/resources/icons/dome-camera1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/resources/icons/file (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/resources/icons/file1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI_myMainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_myMainWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyDetector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VideoPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/VideoPlayer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,20 +40,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/offline_videos" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\python-tasks\WHU-CSTECH\helmet_detector\checkpoints" />
       <recent name="E:\python-tasks\WHU-CSTECH\offline_videos" />
+      <recent name="E:\python-tasks\WHU-CSTECH\helmet_detector\checkpoints" />
       <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources" />
       <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources\icons" />
       <recent name="E:\python-tasks\WHU-CSTECH" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Python.GUI_myMainWindow (1)">
@@ -182,9 +172,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.GUI_myMainWindow (1)" />
+        <item itemvalue="Python.VideoPlayer" />
         <item itemvalue="Python.MyDetector" />
         <item itemvalue="Python.GUI_myMainWindow" />
-        <item itemvalue="Python.VideoPlayer" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -287,34 +277,34 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="523" y="207" key="#com.intellij.tools.ToolEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1583420785452" />
-    <state x="343" y="0" width="932" height="824" key="CommitChangelistDialog2" timestamp="1583474428226">
+    <state x="343" y="0" width="932" height="824" key="CommitChangelistDialog2" timestamp="1585626424050">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="343" y="0" width="932" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583474428226" />
+    <state x="343" y="0" width="932" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585626424050" />
     <state width="1392" height="546" key="DebuggerActiveHint" timestamp="1584863239923">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1392" height="546" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1584863239923" />
-    <state x="499" y="110" key="FileChooserDialogImpl" timestamp="1583469635322">
+    <state x="499" y="110" key="FileChooserDialogImpl" timestamp="1585565143277">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="110" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1583469635322" />
-    <state width="1510" height="187" key="GridCell.Tab.0.bottom" timestamp="1584872284320">
+    <state x="499" y="110" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1585565143277" />
+    <state width="1510" height="150" key="GridCell.Tab.0.bottom" timestamp="1585626376053">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="187" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584872284320" />
-    <state width="1510" height="187" key="GridCell.Tab.0.center" timestamp="1584872284320">
+    <state width="1510" height="150" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585626376053" />
+    <state width="1510" height="150" key="GridCell.Tab.0.center" timestamp="1585626376053">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="187" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584872284320" />
-    <state width="1510" height="187" key="GridCell.Tab.0.left" timestamp="1584872284320">
+    <state width="1510" height="150" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585626376053" />
+    <state width="1510" height="150" key="GridCell.Tab.0.left" timestamp="1585626376052">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="187" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584872284320" />
-    <state width="1510" height="187" key="GridCell.Tab.0.right" timestamp="1584872284320">
+    <state width="1510" height="150" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585626376052" />
+    <state width="1510" height="150" key="GridCell.Tab.0.right" timestamp="1585626376053">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="187" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584872284320" />
+    <state width="1510" height="150" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585626376053" />
     <state width="1510" height="240" key="GridCell.Tab.1.bottom" timestamp="1584872284262">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -350,7 +340,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/MyDetector.py</url>
-          <line>42</line>
+          <line>45</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

@@ -22,7 +22,7 @@ class MainUi(QtWidgets.QMainWindow):
         self.main_widget.setObjectName('main_widget')
         self.main_widget.setLayout(self.main_layout)  # 设置窗口主部件布局为网格布局
 
-        self.left_widget = QtWidgets.QWidget()  # 创建左侧部件
+        self.left_widget = QtWidgets.QWidget(self.main_widget)  # 创建左侧部件
         self.left_widget.setObjectName('left_widget')
         self.left_layout = QtWidgets.QGridLayout()  # 创建左侧部件的网格布局层
         self.left_widget.setLayout(self.left_layout) # 设置左侧部件布局为网格
@@ -76,9 +76,9 @@ class MainUi(QtWidgets.QMainWindow):
 
 
 
-        self.left_layout.addWidget(self.left_widget_logoarea, 0, 0, 6, 1)
-        self.left_layout.addWidget(self.btn_online, 6, 0, 2, 1)
-        self.left_layout.addWidget(self.btn_offline, 8, 0, 2, 1)
+        self.left_layout.addWidget(self.left_widget_logoarea, 0, 0, 8, 1)
+        self.left_layout.addWidget(self.btn_online, 8, 0, 2, 1)
+        self.left_layout.addWidget(self.btn_offline, 10, 0, 2, 1)
         # #
 
 
@@ -86,6 +86,8 @@ class MainUi(QtWidgets.QMainWindow):
         # TODO 关于QSizePolicy的参数介绍：  https://blog.csdn.net/qq_32417149/article/details/88398455?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task
         self.btn_offline.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.btn_online.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
+
 
 
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)  # 隐藏边框
@@ -148,6 +150,7 @@ QWidget#right_widget{
 
         #右侧播放界面设置
         self.right_layout = QtWidgets.QGridLayout()  # 创建右侧部件的网格布局
+        self.right_layout.setSpacing(0)
         self.Player1 = Player()
         # self.Player2 = Player()
         # self.Player3 = Player()
@@ -167,8 +170,22 @@ QWidget#right_widget{
 
         # self.change_to_9_screens()
         name='offline_videos/videoplayback.mp4'
+        print(self.size())
+        print(self.main_widget.size())
+        # self.btn_11 = QtWidgets.QToolButton()
+        # self.right_layout.addWidget(self.btn_11, 0, 0, 12, 14)
+        # self.btn_11.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
+
         self.right_layout.addWidget(self.Player1,0,0)
-        self.Player1.init_offline(name)
+        # self.right_layout.addWidget(self.Player2, 0,1)
+        # self.right_layout.addWidget(self.Player3, 1, 0)
+        # self.right_layout.addWidget(self.Player4, 1, 1)
+
+        # self.Player1.init_offline(name)
+        #
+        # # print(self.right_widget.size())
+        # # self.Player1.setFixedSize(800,480)
         # self.right_layout.addWidget(self.Player2,0,1)
         # self.right_layout.addWidget(self.Player3,1,0)
         # self.right_layout.addWidget(self.Player4,1,1)
