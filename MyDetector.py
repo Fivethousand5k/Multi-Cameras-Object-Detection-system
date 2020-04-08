@@ -65,24 +65,24 @@ class Helmet_Detector():
         assert isinstance(input_img, np.ndarray), "input must be a numpy array!"
         tensor_img=self.transform_to_tensor(input_img)
 
-        # # Get detections
-        # prev_time = time.time()
-        # with torch.no_grad():
-        #     detections = self.model(tensor_img)
-        #     detections = non_max_suppression(detections, conf_thres, nms_thres)
-        #
-        # if detections[0] is not None:
-        #     # Rescale boxes to original image
-        #     detections = rescale_boxes(detections[0], img_size, input_img.shape[:2])
-        #     unique_labels = detections[:, -1].cpu().unique()
-        #     n_cls_preds = len(unique_labels)
-        #     # bbox_colors = random.sample(colors, n_cls_preds)
-        #     for x1, y1, x2, y2, conf, cls_conf, cls_pred in detections:
-        #         cv2.rectangle(input_img, (x1, y1), (x2, y2), colors[int(cls_pred)], 10)
-        #         cv2.putText(input_img, names[int(cls_pred)], (x1, y1-10), cv2.FONT_HERSHEY_PLAIN, 3, colors[int(cls_pred)], 2)
-        #
-        # post_time = time.time()
-        # print(datetime.timedelta(seconds=post_time - prev_time))
+        # Get detections
+        prev_time = time.time()
+        with torch.no_grad():
+            detections = self.model(tensor_img)
+            detections = non_max_suppression(detections, conf_thres, nms_thres)
+
+        if detections[0] is not None:
+            # Rescale boxes to original image
+            detections = rescale_boxes(detections[0], img_size, input_img.shape[:2])
+            unique_labels = detections[:, -1].cpu().unique()
+            n_cls_preds = len(unique_labels)
+            # bbox_colors = random.sample(colors, n_cls_preds)
+            for x1, y1, x2, y2, conf, cls_conf, cls_pred in detections:
+                cv2.rectangle(input_img, (x1, y1), (x2, y2), colors[int(cls_pred)], 10)
+                cv2.putText(input_img, names[int(cls_pred)], (x1, y1-10), cv2.FONT_HERSHEY_PLAIN, 3, colors[int(cls_pred)], 2)
+
+        post_time = time.time()
+        print(datetime.timedelta(seconds=post_time - prev_time))
         return input_img
 
                 # plt.text(
@@ -94,6 +94,30 @@ class Helmet_Detector():
                 #     bbox={"color": color, "pad": 0},
                 # )
 
+
+    def get_label_and_pos(self,input_img):
+        assert isinstance(input_img, np.ndarray), "input must be a numpy array!"
+        tensor_img = self.transform_to_tensor(input_img)
+
+        # Get detections
+        prev_time = time.time()
+        with torch.no_grad():
+            detections = self.model(tensor_img)
+            detections = non_max_suppression(detections, conf_thres, nms_thres)
+
+        if detections[0] is not None:
+            # Rescale boxes to original image
+            detections = rescale_boxes(detections[0], img_size, input_img.shape[:2])
+            # unique_labels = detections[:, -1].cpu().unique()
+            # n_cls_preds = len(unique_labels)
+            # bbox_colors = random.sample(colors, n_cls_preds)
+            # for x1, y1, x2, y2, conf, cls_conf, cls_pred in detections:
+                # cv2.rectangle(input_img, (x1, y1), (x2, y2), colors[int(cls_pred)], 10)
+                # cv2.putText(input_img, names[int(cls_pred)], (x1, y1 - 10), cv2.FONT_HERSHEY_PLAIN, 3,
+                #             colors[int(cls_pred)], 2)
+
+
+        return detections
 
 
 def pad_to_square(img, pad_value):

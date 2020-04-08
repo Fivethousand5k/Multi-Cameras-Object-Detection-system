@@ -150,7 +150,7 @@ QWidget#right_widget{
 
         #右侧播放界面设置
         self.right_layout = QtWidgets.QGridLayout()  # 创建右侧部件的网格布局
-        self.right_layout.setSpacing(0)
+        self.right_layout.setSpacing(1)
         self.Player1 = Player()
         # self.Player2 = Player()
         # self.Player3 = Player()
@@ -168,20 +168,12 @@ QWidget#right_widget{
 
         self.right_widget.setLayout(self.right_layout)  # 设置右侧部件布局为网格
 
-        # self.change_to_9_screens()
-        name='offline_videos/videoplayback.mp4'
-        print(self.size())
-        print(self.main_widget.size())
-        # self.btn_11 = QtWidgets.QToolButton()
-        # self.right_layout.addWidget(self.btn_11, 0, 0, 12, 14)
-        # self.btn_11.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
 
         self.right_layout.addWidget(self.Player1,0,0)
         # self.right_layout.addWidget(self.Player2, 0,1)
         # self.right_layout.addWidget(self.Player3, 1, 0)
         # self.right_layout.addWidget(self.Player4, 1, 1)
-
         # self.Player1.init_offline(name)
         #
         # # print(self.right_widget.size())
