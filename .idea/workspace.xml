@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaa81dd3-6a31-4335-8941-a228522e1ab9" name="Default Changelist" comment="主界面UI">
-      <change afterPath="$PROJECT_DIR$/tools/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI_myMainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_myMainWindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyDetector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VideoPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/VideoPlayer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Processor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +37,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PyTorch-YOLOv3-master" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
   </component>
@@ -59,7 +55,7 @@
       <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.label_img_auto">
+  <component name="RunManager" selected="Python.GUI_myMainWindow (1)">
     <configuration name="GUI_myMainWindow (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="WHU-CSTECH" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -174,8 +170,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.label_img_auto" />
         <item itemvalue="Python.GUI_myMainWindow (1)" />
+        <item itemvalue="Python.label_img_auto" />
         <item itemvalue="Python.Processor" />
         <item itemvalue="Python.test_realtime" />
         <item itemvalue="Python.test (1)" />
@@ -288,26 +284,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1392" height="546" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1584863239923" />
-    <state x="499" y="110" key="FileChooserDialogImpl" timestamp="1586243580438">
+    <state x="499" y="110" key="FileChooserDialogImpl" timestamp="1586429035766">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="110" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586243580438" />
-    <state width="1510" height="218" key="GridCell.Tab.0.bottom" timestamp="1586260816958">
+    <state x="499" y="110" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586429035766" />
+    <state width="1510" height="218" key="GridCell.Tab.0.bottom" timestamp="1586349259201">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="218" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586260816958" />
-    <state width="1510" height="218" key="GridCell.Tab.0.center" timestamp="1586260816957">
+    <state width="1510" height="218" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586349259201" />
+    <state width="1510" height="218" key="GridCell.Tab.0.center" timestamp="1586349259200">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="218" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586260816957" />
-    <state width="1510" height="218" key="GridCell.Tab.0.left" timestamp="1586260816957">
+    <state width="1510" height="218" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586349259200" />
+    <state width="1510" height="218" key="GridCell.Tab.0.left" timestamp="1586349259200">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="218" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586260816957" />
-    <state width="1510" height="218" key="GridCell.Tab.0.right" timestamp="1586260816957">
+    <state width="1510" height="218" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586349259200" />
+    <state width="1510" height="218" key="GridCell.Tab.0.right" timestamp="1586349259200">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="218" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586260816957" />
+    <state width="1510" height="218" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586349259200" />
     <state width="1510" height="288" key="GridCell.Tab.1.bottom" timestamp="1586244008621">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

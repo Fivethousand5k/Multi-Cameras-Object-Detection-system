@@ -1,4 +1,11 @@
 
-helmet_detector
+helmet_detector/5000tools
+helmet_detector/checkpoints
+helmet_detector/output
+helmet_detector/weights
+helmet_detector/venv
+helmet_detector/data
+helmet_detector/logs
+helmet_detector/_pycache_
 offline_videos
 home-made-datasets

@@ -24,8 +24,8 @@ def detector(origin_img_q=None,result_img_q=None):
 
 
 
-def play(q_put,playable=True,mode='offline',video_path='offline_videos/workers.mov'):
-    videocap = cv2.VideoCapture(video_path)
+def play(q_put,playable=True,mode='offline',video_path='offline_videos/workers2.mp4'):
+    videocap = cv2.VideoCapture(0)
     # videocap.set(cv2.CAP_PROP_POS_FRAMES,3000)
     frame_total = videocap.get(7)         #得到总帧数
     current_index=0
