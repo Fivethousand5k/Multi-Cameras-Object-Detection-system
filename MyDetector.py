@@ -33,13 +33,15 @@ colors=[[144, 238, 144],[220,20,60]]
 
 class Helmet_Detector():
     def __init__(self):
-        self.device= torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.Tensor = torch.cuda.FloatTensor if torch.cuda.is_available() else torch.FloatTensor
-        print("using",self.device)
-        classes = load_classes(class_path)  # Extracts class labels from file
-        self.model= Darknet(model_def, img_size=img_size).to(self.device)
-        self.model.load_state_dict(torch.load(weights_path))         #装载训练参数
-        self.model.eval()                   #set in eval mode
+        self.test_no_model=True
+        if not self.test_no_model:
+            self.device= torch.device("cuda" if torch.cuda.is_available() else "cpu")
+            self.Tensor = torch.cuda.FloatTensor if torch.cuda.is_available() else torch.FloatTensor
+            print("using",self.device)
+            classes = load_classes(class_path)  # Extracts class labels from file
+            self.model= Darknet(model_def, img_size=img_size).to(self.device)
+            self.model.load_state_dict(torch.load(weights_path))         #装载训练参数
+            self.model.eval()                   #set in eval mode
 
     def transform_to_tensor(self,img):
 
@@ -63,26 +65,28 @@ class Helmet_Detector():
 
         # img to tensor
         assert isinstance(input_img, np.ndarray), "input must be a numpy array!"
-        tensor_img=self.transform_to_tensor(input_img)
 
-        # Get detections
-        prev_time = time.time()
-        with torch.no_grad():
-            detections = self.model(tensor_img)
-            detections = non_max_suppression(detections, conf_thres, nms_thres)
+        if not self.test_no_model:
+            tensor_img=self.transform_to_tensor(input_img)
 
-        if detections[0] is not None:
-            # Rescale boxes to original image
-            detections = rescale_boxes(detections[0], img_size, input_img.shape[:2])
-            unique_labels = detections[:, -1].cpu().unique()
-            n_cls_preds = len(unique_labels)
-            # bbox_colors = random.sample(colors, n_cls_preds)
-            for x1, y1, x2, y2, conf, cls_conf, cls_pred in detections:
-                cv2.rectangle(input_img, (x1, y1), (x2, y2), colors[int(cls_pred)], 10)
-                cv2.putText(input_img, names[int(cls_pred)], (x1, y1-10), cv2.FONT_HERSHEY_PLAIN, 3, colors[int(cls_pred)], 2)
+            # Get detections
+            prev_time = time.time()
+            with torch.no_grad():
+                detections = self.model(tensor_img)
+                detections = non_max_suppression(detections, conf_thres, nms_thres)
 
-        post_time = time.time()
-        print(datetime.timedelta(seconds=post_time - prev_time))
+            if detections[0] is not None:
+                # Rescale boxes to original image
+                detections = rescale_boxes(detections[0], img_size, input_img.shape[:2])
+                unique_labels = detections[:, -1].cpu().unique()
+                n_cls_preds = len(unique_labels)
+                # bbox_colors = random.sample(colors, n_cls_preds)
+                for x1, y1, x2, y2, conf, cls_conf, cls_pred in detections:
+                    cv2.rectangle(input_img, (x1, y1), (x2, y2), colors[int(cls_pred)], 10)
+                    cv2.putText(input_img, names[int(cls_pred)], (x1, y1-10), cv2.FONT_HERSHEY_PLAIN, 3, colors[int(cls_pred)], 2)
+
+            post_time = time.time()
+            print(datetime.timedelta(seconds=post_time - prev_time))
         return input_img
 
                 # plt.text(
