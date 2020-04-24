@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="eaa81dd3-6a31-4335-8941-a228522e1ab9" name="Default Changelist" comment="主界面UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI_myMainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_myMainWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyDetector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Processor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,22 +39,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PyTorch-YOLOv3-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\python-tasks\WHU-CSTECH\offline_videos" />
-      <recent name="E:\python-tasks\WHU-CSTECH\helmet_detector\checkpoints" />
-      <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources" />
-      <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources\icons" />
-      <recent name="E:\python-tasks\WHU-CSTECH" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\python-tasks\WHU-CSTECH\tools" />
       <recent name="E:\python-tasks\WHU-CSTECH" />
       <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\python-tasks\WHU-CSTECH" />
+      <recent name="E:\python-tasks\WHU-CSTECH\offline_videos" />
+      <recent name="E:\python-tasks\WHU-CSTECH\helmet_detector\checkpoints" />
+      <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources" />
+      <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources\icons" />
     </key>
   </component>
   <component name="RunManager" selected="Python.GUI_myMainWindow (1)">
@@ -69,6 +71,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI_myMainWindow.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MyDetector2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="WHU-CSTECH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MyDetector2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -119,27 +142,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="WHU-CSTECH" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="test_realtime" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="WHU-CSTECH" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -164,17 +166,17 @@
     <list>
       <item itemvalue="Python.GUI_myMainWindow (1)" />
       <item itemvalue="Python.Processor" />
-      <item itemvalue="Python.test (1)" />
       <item itemvalue="Python.test_realtime" />
       <item itemvalue="Python.label_img_auto" />
+      <item itemvalue="Python.MyDetector2" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.GUI_myMainWindow (1)" />
+        <item itemvalue="Python.MyDetector2" />
+        <item itemvalue="Python.test_realtime" />
         <item itemvalue="Python.label_img_auto" />
         <item itemvalue="Python.Processor" />
-        <item itemvalue="Python.test_realtime" />
-        <item itemvalue="Python.test (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -284,42 +286,42 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1392" height="546" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1584863239923" />
-    <state x="499" y="110" key="FileChooserDialogImpl" timestamp="1586429035766">
+    <state x="499" y="110" key="FileChooserDialogImpl" timestamp="1587516041699">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="110" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586429035766" />
-    <state width="1510" height="3" key="GridCell.Tab.0.bottom" timestamp="1587132165809">
+    <state x="499" y="110" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587516041699" />
+    <state width="1510" height="190" key="GridCell.Tab.0.bottom" timestamp="1587737901158">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="3" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587132165809" />
-    <state width="1510" height="3" key="GridCell.Tab.0.center" timestamp="1587132165809">
+    <state width="1510" height="190" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587737901158" />
+    <state width="1510" height="190" key="GridCell.Tab.0.center" timestamp="1587737901158">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="3" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587132165809" />
-    <state width="1510" height="3" key="GridCell.Tab.0.left" timestamp="1587132165809">
+    <state width="1510" height="190" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587737901158" />
+    <state width="1510" height="190" key="GridCell.Tab.0.left" timestamp="1587737901157">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="3" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587132165809" />
-    <state width="1510" height="3" key="GridCell.Tab.0.right" timestamp="1587132165809">
+    <state width="1510" height="190" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587737901157" />
+    <state width="1510" height="190" key="GridCell.Tab.0.right" timestamp="1587737901158">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="3" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587132165809" />
-    <state width="1510" height="288" key="GridCell.Tab.1.bottom" timestamp="1586244008621">
+    <state width="1510" height="190" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587737901158" />
+    <state width="1510" height="288" key="GridCell.Tab.1.bottom" timestamp="1587694066422">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="288" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586244008621" />
-    <state width="1510" height="288" key="GridCell.Tab.1.center" timestamp="1586244008621">
+    <state width="1510" height="288" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587694066422" />
+    <state width="1510" height="288" key="GridCell.Tab.1.center" timestamp="1587694066422">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="288" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1586244008621" />
-    <state width="1510" height="288" key="GridCell.Tab.1.left" timestamp="1586244008621">
+    <state width="1510" height="288" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1587694066422" />
+    <state width="1510" height="288" key="GridCell.Tab.1.left" timestamp="1587694066421">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="288" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1586244008621" />
-    <state width="1510" height="288" key="GridCell.Tab.1.right" timestamp="1586244008621">
+    <state width="1510" height="288" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1587694066421" />
+    <state width="1510" height="288" key="GridCell.Tab.1.right" timestamp="1587694066422">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="288" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1586244008621" />
+    <state width="1510" height="288" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1587694066422" />
     <state x="154" y="0" key="SettingsEditor" timestamp="1586243575345">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -355,6 +357,11 @@
           <url>file://$PROJECT_DIR$/tools/label_img_auto.py</url>
           <line>55</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/MyDetector2.py</url>
+          <line>44</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

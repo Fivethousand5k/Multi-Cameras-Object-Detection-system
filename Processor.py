@@ -1,4 +1,5 @@
 from MyDetector import Helmet_Detector
+from MyDetector2 import Helmet_Detector2
 import threading
 import multiprocessing as mp
 from multiprocessing import Process
@@ -11,7 +12,7 @@ import numpy
 
 
 def detector(origin_img_q=None,result_img_q=None):
-    helmet_detector=Helmet_Detector()
+    helmet_detector=Helmet_Detector2()
     while True:
         while origin_img_q.qsize() == 0:
             print("no")
@@ -25,7 +26,7 @@ def detector(origin_img_q=None,result_img_q=None):
 
 
 def play(q_put,playable=True,mode='offline',video_path='offline_videos/workers2.mp4'):
-    videocap = cv2.VideoCapture(0)
+    videocap = cv2.VideoCapture('offline_videos/workers2.mp4')
     # videocap.set(cv2.CAP_PROP_POS_FRAMES,3000)
     frame_total = videocap.get(7)         #得到总帧数
     current_index=0

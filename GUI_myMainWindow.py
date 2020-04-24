@@ -152,7 +152,7 @@ QWidget#right_widget{
         self.right_layout = QtWidgets.QGridLayout()  # 创建右侧部件的网格布局
         self.right_layout.setSpacing(1)
         self.Player1 = Player()
-        # self.Player2 = Player()
+        self.Player2 = Player()
         # self.Player3 = Player()
         # self.Player4 = Player()
         # self.Player5 = Player()
@@ -171,7 +171,7 @@ QWidget#right_widget{
 
 
         self.right_layout.addWidget(self.Player1,0,0)
-        # self.right_layout.addWidget(self.Player2, 0,1)
+        self.right_layout.addWidget(self.Player2, 0,1)
         # self.right_layout.addWidget(self.Player3, 1, 0)
         # self.right_layout.addWidget(self.Player4, 1, 1)
         # self.Player1.init_offline(name)

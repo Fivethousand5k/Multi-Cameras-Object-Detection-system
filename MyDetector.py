@@ -33,7 +33,7 @@ colors=[[144, 238, 144],[220,20,60]]
 
 class Helmet_Detector():
     def __init__(self):
-        self.test_no_model=True
+        self.test_no_model=False
         if not self.test_no_model:
             self.device= torch.device("cuda" if torch.cuda.is_available() else "cpu")
             self.Tensor = torch.cuda.FloatTensor if torch.cuda.is_available() else torch.FloatTensor
