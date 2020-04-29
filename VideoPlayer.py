@@ -1,9 +1,11 @@
+from ctypes import c_bool
+
 import cv2
 from PyQt5.Qt import *
 from PyQt5 import QtWidgets, QtCore
 from MyDetector import Helmet_Detector
 import threading
-from torch.multiprocessing import Process
+from torch.multiprocessing import Process,Value,Lock
 import  torch.multiprocessing as mp
 
 import  time
@@ -16,7 +18,9 @@ class Player(QWidget):
     def __init__(self,parent=None):
         super(Player, self).__init__(parent)
         self.init_UI()
+        self.init_data()
         self.init_process()
+        self.init_connect()
         self.init_offline()
 
     def init_UI(self):
@@ -42,14 +46,87 @@ class Player(QWidget):
         self.setLayout(self.layout1)  # 设置窗口主部件布局为网格布局
 
 
+    def init_data(self):
+        self.semaphore=True
+        self.is_change_bar=Value(c_bool, False)     #whether user has dragged the slider,default: False
+
+        self.frame_index= Value('i',0)
+        self.share_lock=Lock()  #shared lock for frame_index
+        self.share_lock2 = Lock()  # shared lock for frame_index
+
+        self.mutex = threading.Lock()
+
+
+        self.timer = QTimer(self)  # used for the updating of progress bar
+
+        self.temp_timer=QTimer(self)  #used for detecting whether the frame_total is given.
+        self.frame_total = Value('i', -1)
+        self.playable=Value(c_bool, True)
+        print(self.frame_total.value)
+
+    def init_connect(self):
+        self.btn_pause.clicked.connect(self.pause)
+
+    def init_offline_connect(self):
+
+        self.timer.timeout.connect(self.update_progressBar)
+        self.timer.start(50)  # update the progressbar value every 50ms
+        self.temp_timer.timeout.connect(self.set_MaxValue)
+        self.temp_timer.start(50)
+
+        #progressbar
+        self.progressBar.sliderPressed.connect(self.lockBar) # when the user is dragging the slider, stop updating the value
+        self.progressBar.sliderReleased.connect(self.change_progressBar)
+
+
+    def init_online_connect(self):
+        pass
+        
+
 
     def init_process(self):
         self.origin_img_q=mp.Queue(maxsize=2)
         self.result_img_q=mp.Queue(maxsize=4)
         self.p_detector = Process(target=detector,args = (self.origin_img_q,self.result_img_q))
         self.p_detector.start()
-        self.img_fetcher=Process(target=play,args = (self.origin_img_q,))
+        self.img_fetcher=Process(target=play,args = (self.origin_img_q,self.frame_index,self.share_lock,self.frame_total,self.is_change_bar,self.playable))
         self.img_fetcher.start()
+
+
+    def lockBar(self):
+        self.share_lock.acquire()
+        self.mutex.acquire()
+        self.semaphore=False
+        self.mutex.release()
+
+
+
+    def change_progressBar(self):
+
+        self.frame_index.value=self.progressBar.value()
+        self.is_change_bar.value=True
+        self.share_lock.release()
+        self.mutex.acquire()
+        self.semaphore=True
+        self.mutex.release()
+
+    def set_MaxValue(self):
+
+        if self.frame_total.value is not -1:                    #只执行一次
+            self.progressBar.setMaximum(self.frame_total.value)
+            self.temp_timer.disconnect()
+
+    def update_progressBar(self):
+        self.mutex.acquire()
+        if self.semaphore:
+           self.progressBar.setValue(self.frame_index.value)
+        self.mutex.release()
+
+
+
+
+    def pause(self):
+        self.playable.value=not self.playable.value
 
     def display(self):
         while True:
@@ -57,6 +134,7 @@ class Player(QWidget):
                 prev = time.time()
                 show=self.result_img_q.get()
                 post = time.time()
+                # print(datetime.timedelta(seconds=post - prev))
 
                 showImage = QImage(show.data, show.shape[1], show.shape[0],
                                    QImage.Format_RGB888)  # 转换成QImage类型
@@ -76,7 +154,8 @@ class Player(QWidget):
         :param video_path:  要离线播放的video地址
         :return:
         """
-        self.timer = QTimer(self)           #计时器，用于以线程方式定时唤醒播放
+
+        self.init_offline_connect()
 
         self.offline_video_thread = threading.Thread(target=self.display)
         self.offline_video_thread.start()
