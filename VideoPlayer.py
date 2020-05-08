@@ -19,9 +19,9 @@ class Player(QWidget):
         super(Player, self).__init__(parent)
         self.init_UI()
         self.init_data()
-        self.init_process()
-        self.init_connect()
-        self.init_offline()
+        # self.init_process()
+        # self.init_connect()
+        # self.init_offline()
 
     def init_UI(self):
         self.layout1=QtWidgets.QGridLayout()  # 创建主部件的网格布局
@@ -29,6 +29,25 @@ class Player(QWidget):
         self.btn_start = QtWidgets.QToolButton()
         self.btn_pause = QtWidgets.QToolButton()
         self.btn_close = QtWidgets.QToolButton()
+        self.btn_start.setIcon(QIcon('GUI/resources/icons/play.png'))
+        self.btn_start.setIconSize(QSize(30, 30))
+        self.btn_pause.setIcon(QIcon('GUI/resources/icons/pause.png'))
+        self.btn_pause.setIconSize(QSize(30, 30))
+        self.btn_close.setIcon(QIcon('GUI/resources/icons/close.png'))
+        self.btn_close.setIconSize(QSize(30, 30))
+
+        self.setStyleSheet('''
+            QToolButton{border:none;color:red;}
+            QToolButton#left_label{
+                border:none;
+                border-bottom:1px solid white;
+                font-size:18px;
+                font-weight:700;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+            QToolButton#left_button:hover{border-left:4px solid red;font-weight:700;}
+        ''')
+
         self.label_info= QtWidgets.QLabel()
         self.progressBar = QtWidgets.QSlider()
         self.progressBar.setOrientation(QtCore.Qt.Horizontal)

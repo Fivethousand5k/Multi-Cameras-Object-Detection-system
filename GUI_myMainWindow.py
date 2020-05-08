@@ -14,6 +14,7 @@ class MainUi(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         self.init_ui()
+        self.init_connect()
 
     def init_ui(self):
         self.setFixedSize(1400,900)
@@ -200,6 +201,9 @@ QWidget#right_widget{
         # self.vdo_widget8 = QtWidgets.QWidget()
         # self.vdo_widget9 = QtWidgets.QWidget()
 
+
+    def init_connect(self):
+        self.btn_online.clicked.connect()
 
     def change_to_9_screens(self):
         for i in range(self.right_layout.count()):                        #首先清空layout内所有的widget
