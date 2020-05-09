@@ -1,10 +1,11 @@
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import QSize, QFile, Qt, QEvent, QPoint, QTimer, pyqtSignal
 from PyQt5.QtGui import QIcon, QBrush, QColor, QPainter, QPixmap, QPalette
-from PyQt5.QtWidgets import QMainWindow, QApplication, QMenu, QTreeWidgetItem, QLabel, QSizePolicy
+from PyQt5.QtWidgets import QMainWindow, QApplication, QMenu, QTreeWidgetItem, QLabel, QSizePolicy, QTreeWidget
 from PyQt5 import QtCore
 import sys
 from VideoPlayer import Player
+import sip
 import qtawesome
 
 
@@ -80,6 +81,8 @@ class MainUi(QtWidgets.QMainWindow):
         self.left_layout.addWidget(self.left_widget_logoarea, 0, 0, 8, 1)
         self.left_layout.addWidget(self.btn_online, 8, 0, 2, 1)
         self.left_layout.addWidget(self.btn_offline, 10, 0, 2, 1)
+        self.left_widgets=[self.left_widget_logoarea,self.btn_online,self.btn_offline]
+
         # #
 
 
@@ -203,7 +206,24 @@ QWidget#right_widget{
 
 
     def init_connect(self):
-        self.btn_online.clicked.connect()
+        self.btn_online.clicked.connect(self.a)
+
+
+    def a(self):
+        print("asd")
+
+        # self.btn_online.setVisible(False)
+        for i in self.left_widgets:
+            i.setVisible(False)
+            self.left_layout.removeWidget(i)
+        self.tree = QTreeWidget()
+        # 设置列数
+        self.tree.setColumnCount(2)
+        # 设置树形控件头部的标题
+        self.tree.setHeaderLabels(['Key', 'Value'])
+        self.left_layout.addWidget(self.tree,0,0,1,1)
+
+
 
     def change_to_9_screens(self):
         for i in range(self.right_layout.count()):                        #首先清空layout内所有的widget
