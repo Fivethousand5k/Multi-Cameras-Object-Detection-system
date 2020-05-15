@@ -1,10 +1,11 @@
 from PyQt5 import QtWidgets, QtGui
-from PyQt5.QtCore import QSize, QFile, Qt, QEvent, QPoint, QTimer, pyqtSignal
+from PyQt5.QtCore import QSize, QFile, Qt, QEvent, QPoint, QTimer, pyqtSignal, QCoreApplication
 from PyQt5.QtGui import QIcon, QBrush, QColor, QPainter, QPixmap, QPalette
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMenu, QTreeWidgetItem, QLabel, QSizePolicy, QTreeWidget
 from PyQt5 import QtCore
 import sys
 from VideoPlayer import Player
+from Online_cam_addresses import cams
 import sip
 import qtawesome
 
@@ -34,21 +35,37 @@ class MainUi(QtWidgets.QMainWindow):
 
         self.top_widget=QtWidgets.QWidget()  # 创建顶部部件
         self.top_widget.setObjectName('top_widget')
+        self.top_layout=QtWidgets.QGridLayout()
+        self.top_widget.setLayout(self.top_layout)
+
+        #顶部的3个部件： 标题，最小化按钮，关闭按钮
+        self.label_title=QLabel("")
+        self.label_title.setAlignment(Qt.AlignLeft)
+        self.label_title.setText(u"多路摄像头安全帽检测系统")
+
+        self.btn_close = QtWidgets.QToolButton()  # 关闭按钮
+        self.btn_mini = QtWidgets.QToolButton()  # 最小化按钮
+
+        self.top_layout.addWidget(self.label_title,0,0,1,20)
+        self.top_layout.addWidget(self.btn_mini,0,20,1,1)
+        self.top_layout.addWidget(self.btn_close, 0, 21, 1, 1)
+        icon_btn_close = QIcon('GUI/resources/icons/main_close.png')  # 在线检测的icon
+        self.btn_close.setIcon(icon_btn_close)
+        self.btn_close.setIconSize(QSize(30, 30))
+        self.btn_close.setStyleSheet("""
+        QToolButton{border:none;color:red;}
+        """)
+        icon_btn_mini = QIcon('GUI/resources/icons/main_minimize.png')  # 在线检测的icon
+        self.btn_mini.setIcon(icon_btn_mini)
+        self.btn_mini.setIconSize(QSize(30, 30))
+        self.btn_mini.setStyleSheet("""
+        QToolButton{border:none;color:red;}
+        """)
 
 
-
-
-
-
-
-        self.left_close = QtWidgets.QPushButton("")  # 关闭按钮
-        self.left_visit = QtWidgets.QPushButton("")  # 空白按钮
-        self.left_mini = QtWidgets.QPushButton("")  # 最小化按钮
 
         self.left_widget_logoarea = QtWidgets.QWidget()  # 创建左侧部件内部的小部件，用于logo区
         self.left_widget_logoarea.setObjectName('left_widget_logoarea')
-
-
 
 
         #TOdo
@@ -156,7 +173,7 @@ QWidget#right_widget{
         self.right_layout = QtWidgets.QGridLayout()  # 创建右侧部件的网格布局
         self.right_layout.setSpacing(1)
         self.Player1 = Player()
-        self.Player2 = Player()
+        # self.Player2 = Player()
         # self.Player3 = Player()
         # self.Player4 = Player()
         # self.Player5 = Player()
@@ -165,9 +182,7 @@ QWidget#right_widget{
         # self.Player8 = Player()
         # self.Player9 = Player()
 
-        # self.Players_list=[self.Player1,self.Player2,self.Player3,
-        #                    self.Player4,self.Player5,self.Player6,
-        #                    self.Player7,self.Player8,self.Player9]
+        self.Players_list=[self.Player1]
 
 
         self.right_widget.setLayout(self.right_layout)  # 设置右侧部件布局为网格
@@ -175,7 +190,7 @@ QWidget#right_widget{
 
 
         self.right_layout.addWidget(self.Player1,0,0)
-        self.right_layout.addWidget(self.Player2, 0,1)
+        # self.right_layout.addWidget(self.Player2, 0,1)
         # self.right_layout.addWidget(self.Player3, 1, 0)
         # self.right_layout.addWidget(self.Player4, 1, 1)
         # self.Player1.init_offline(name)
@@ -207,10 +222,11 @@ QWidget#right_widget{
 
     def init_connect(self):
         self.btn_online.clicked.connect(self.a)
+        self.btn_mini.clicked.connect(self.showMinimized)
+        self.btn_close.clicked.connect(self.close)
 
 
     def a(self):
-        print("asd")
 
         # self.btn_online.setVisible(False)
         for i in self.left_widgets:
@@ -218,11 +234,91 @@ QWidget#right_widget{
             self.left_layout.removeWidget(i)
         self.tree = QTreeWidget()
         # 设置列数
-        self.tree.setColumnCount(2)
+        self.tree.setColumnCount(1)
         # 设置树形控件头部的标题
-        self.tree.setHeaderLabels(['Key', 'Value'])
-        self.left_layout.addWidget(self.tree,0,0,1,1)
+        self.tree.setHeaderLabels(['Online Cameras'])
+        width,height=self.left_widget.width(),self.left_widget.height()         #获得left_widget的宽，之后使treeview的宽设为fixed
+        self.tree.setFixedSize(width,height)
+        self.tree.setSizePolicy(QSizePolicy.Fixed,QSizePolicy.Maximum)
+        self.tree.setStyleSheet("""QTreeView {
+    outline: 10px;
+    background: rgb(255,127,36);
+}
+QTreeView::item {
+    min-height: 92px;
+}
+QTreeView::item:hover {
+    background: rgb(41, 56, 71);
+}
+QTreeView::item:selected {
+    background: rgb(41, 56, 71);
+}
 
+QTreeView::item:selected:active{
+    background: rgb(41, 56, 71);
+}
+
+
+
+
+    """)
+        for cam in cams:
+            root = QTreeWidgetItem(self.tree)
+            self.tree.addTopLevelItem(root)
+            root.setText(0,cam)
+            root.setIcon(0, QIcon("GUI/resources/icons/camera.png"))
+        self.left_layout.addWidget(self.tree,0,0,12,1)
+
+        self.btn_return=QtWidgets.QPushButton()
+        icon_btn_return = QIcon('GUI/resources/icons/return.png')  # 在线检测的icon
+        self.btn_return.setIcon(icon_btn_return)
+        self.btn_return.setSizePolicy(QSizePolicy.Expanding,QSizePolicy.Preferred)
+        self.btn_return.setIcon(icon_btn_return)
+        self.btn_return.setIconSize(QSize(40, 40))
+        self.left_layout.addWidget(self.btn_return,12,0,1,1)
+        self.left_widgets=[self.tree,self.btn_return]
+        self.btn_return.clicked.connect(self.return_from_online)
+
+        self.tree.itemDoubleClicked.connect(self.start_online)
+
+    def start_online(self,item):
+        name=item.text(0)
+        address=cams[name]
+        chosen_index=-1
+        for id,player in enumerate(self.Players_list):
+            if not player.is_working.value:    # found a unoccupied player
+                chosen_index=id
+                break
+        if chosen_index != -1:
+            player=self.Players_list[chosen_index]
+            player.play_src.value=address
+            player.start_online(address)
+
+
+
+
+        else:           # all the players are working
+            pass
+
+
+
+
+
+
+    def close(self):
+        exit()
+
+    def return_from_online(self):
+        for i in self.left_widgets:             #delete all the left_widgets and then replace them with new ones
+            i.setVisible(False)
+            self.left_layout.removeWidget(i)
+        self.left_layout.addWidget(self.left_widget_logoarea, 0, 0, 8, 1)
+        self.left_layout.addWidget(self.btn_online, 8, 0, 2, 1)
+        self.left_layout.addWidget(self.btn_offline, 10, 0, 2, 1)
+        self.left_widget_logoarea.setVisible(True)
+        self.btn_online.setVisible(True)
+        self.btn_offline.setVisible(True)
+        self.left_widgets = [self.left_widget_logoarea, self.btn_online, self.btn_offline]
 
 
     def change_to_9_screens(self):

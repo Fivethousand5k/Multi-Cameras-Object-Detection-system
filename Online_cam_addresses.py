@@ -2,3 +2,12 @@
 cam_1=0
 cam_2=0
 cam_3=0
+cam_4=0
+cams=[cam_1,cam_2,cam_3,cam_4]
+
+cams={
+    'north': '0' ,
+    'east' : '0' ,
+    'south': '0' ,
+    'west' : '0'
+}

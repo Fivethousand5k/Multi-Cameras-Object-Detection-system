@@ -4,8 +4,9 @@ import cv2
 from PyQt5.Qt import *
 from PyQt5 import QtWidgets, QtCore
 from MyDetector import Helmet_Detector
+from ctypes import c_char_p
 import threading
-from torch.multiprocessing import Process,Value,Lock
+from torch.multiprocessing import Process,Value,Lock,Manager
 import  torch.multiprocessing as mp
 
 import  time
@@ -19,9 +20,9 @@ class Player(QWidget):
         super(Player, self).__init__(parent)
         self.init_UI()
         self.init_data()
-        # self.init_process()
-        # self.init_connect()
-        # self.init_offline()
+        self.init_process()
+        self.init_connect()
+        self.init_offline()
 
     def init_UI(self):
         self.layout1=QtWidgets.QGridLayout()  # 创建主部件的网格布局
@@ -49,6 +50,7 @@ class Player(QWidget):
         ''')
 
         self.label_info= QtWidgets.QLabel()
+        self.label_info.setText("[空闲]")
         self.progressBar = QtWidgets.QSlider()
         self.progressBar.setOrientation(QtCore.Qt.Horizontal)
         self.layout1.addWidget(self.label_info,0,0,1,7)
@@ -66,6 +68,7 @@ class Player(QWidget):
 
 
     def init_data(self):
+        self.is_working=False
         self.semaphore=True
         self.is_change_bar=Value(c_bool, False)     #whether user has dragged the slider,default: False
 
@@ -77,14 +80,16 @@ class Player(QWidget):
 
 
         self.timer = QTimer(self)  # used for the updating of progress bar
-
         self.temp_timer=QTimer(self)  #used for detecting whether the frame_total is given.
         self.frame_total = Value('i', -1)
         self.playable=Value(c_bool, True)
-        print(self.frame_total.value)
+        self.is_working = Value(c_bool, False)
+        manager=Manager()
+        self.play_src = manager.Value(c_char_p, 'None')             #用于记录播放的视频地址
 
     def init_connect(self):
         self.btn_pause.clicked.connect(self.pause)
+        self.btn_close.clicked.connect(self.close)
 
     def init_offline_connect(self):
 
@@ -108,7 +113,7 @@ class Player(QWidget):
         self.result_img_q=mp.Queue(maxsize=4)
         self.p_detector = Process(target=detector,args = (self.origin_img_q,self.result_img_q))
         self.p_detector.start()
-        self.img_fetcher=Process(target=play,args = (self.origin_img_q,self.frame_index,self.share_lock,self.frame_total,self.is_change_bar,self.playable))
+        self.img_fetcher=Process(target=play,args = (self.origin_img_q,self.frame_index,self.share_lock,self.frame_total,self.is_change_bar,self.playable,self.is_working,self.play_src))
         self.img_fetcher.start()
 
 
@@ -141,7 +146,8 @@ class Player(QWidget):
            self.progressBar.setValue(self.frame_index.value)
         self.mutex.release()
 
-
+    def close(self):
+        self.is_working.value=not self.is_working.value
 
 
     def pause(self):
@@ -149,22 +155,20 @@ class Player(QWidget):
 
     def display(self):
         while True:
-            if not self.result_img_q.empty():
-                prev = time.time()
-                show=self.result_img_q.get()
-                post = time.time()
-                # print(datetime.timedelta(seconds=post - prev))
+            if self.is_working.value:
+                if not self.result_img_q.empty():
+                    prev = time.time()
+                    show=self.result_img_q.get()
+                    post = time.time()
+                    # print(datetime.timedelta(seconds=post - prev))
 
-                showImage = QImage(show.data, show.shape[1], show.shape[0],
-                                   QImage.Format_RGB888)  # 转换成QImage类型
-                self.label_screen.setScaledContents(True)
+                    showImage = QImage(show.data, show.shape[1], show.shape[0],
+                                       QImage.Format_RGB888)  # 转换成QImage类型
+                    self.label_screen.setScaledContents(True)
 
-                self.label_screen.setPixmap(QPixmap.fromImage(showImage))  #
-
-
-
-
-
+                    self.label_screen.setPixmap(QPixmap.fromImage(showImage))  #
+            else:
+                time.sleep(0.1)
 
 
     def init_offline(self,video_path=None):
@@ -179,6 +183,14 @@ class Player(QWidget):
         self.offline_video_thread = threading.Thread(target=self.display)
         self.offline_video_thread.start()
 
+    def start_online(self,play_src):
+        self.play_src.value=play_src            #path of online camera
+        self.label_info.setText('[在线模式]:',play_src)
+        self.is_working.value=True
+        self.playable.value=True
+
+    def start_offline(self,play_src):
+        pass
 
 
 
