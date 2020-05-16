@@ -6,7 +6,7 @@ cam_4=0
 cams=[cam_1,cam_2,cam_3,cam_4]
 
 cams={
-    'north': '0' ,
+    'north': 'offline_videos/workers.mov' ,
     'east' : '0' ,
     'south': '0' ,
     'west' : '0'

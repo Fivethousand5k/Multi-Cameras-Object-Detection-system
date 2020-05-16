@@ -61,7 +61,7 @@ def play(q_put, frame_index, share_lock, frame_total, is_change_bar, playable, i
                         break
                     time.sleep(0.1)
                     print("sleeping")
-
+            videocap.release()
 
         while not is_working.value:
             time.sleep(0.1)

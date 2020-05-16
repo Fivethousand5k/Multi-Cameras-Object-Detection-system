@@ -51,6 +51,10 @@ class Player(QWidget):
 
         self.label_info= QtWidgets.QLabel()
         self.label_info.setText("[空闲]")
+        pe = QPalette()
+        pe.setColor(QPalette.WindowText, Qt.white)
+        self.label_info.setPalette(pe)
+        self.label_info.setFont(QFont("Microsoft YaHei", 10, QFont.Bold))
         self.progressBar = QtWidgets.QSlider()
         self.progressBar.setOrientation(QtCore.Qt.Horizontal)
         self.layout1.addWidget(self.label_info,0,0,1,7)
@@ -59,9 +63,7 @@ class Player(QWidget):
         self.layout1.addWidget(self.btn_start, 8, 0, 1, 1)
         self.layout1.addWidget(self.btn_pause, 8, 1, 1, 1)
         self.layout1.addWidget(self.progressBar, 8, 2, 1, 6)
-
-        # self.label_info.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        # self.progressBar.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.bottom_widgets=[self.btn_start,self.btn_pause,self.progressBar]
         self.label_screen.setScaledContents(True)
         self.label_screen.setPixmap(QPixmap("GUI/resources/helmet.jpg"))
         self.setLayout(self.layout1)  # 设置窗口主部件布局为网格布局
@@ -85,12 +87,13 @@ class Player(QWidget):
         self.playable=Value(c_bool, True)
         self.is_working = Value(c_bool, False)
         manager=Manager()
-        self.play_src = manager.Value(c_char_p, 'None')             #用于记录播放的视频地址
+        self.play_src = manager.Value(c_char_p, '0')             #用于记录播放的视频地址
         self.mode = None                # 'online' or 'offline'
 
     def init_connect(self):
         self.btn_pause.clicked.connect(self.pause)
         self.btn_close.clicked.connect(self.close)
+        self.btn_start.clicked.connect(self.play)
 
     def init_offline_connect(self):
 
@@ -149,6 +152,9 @@ class Player(QWidget):
 
     def close(self):
         self.is_working.value=False
+        self.label_screen.setPixmap(QPixmap("GUI/resources/helmet.jpg"))
+        time.sleep(0.1)
+        self.label_info.setText('空闲')
 
     def play(self):
         self.playable.value = True
@@ -190,14 +196,22 @@ class Player(QWidget):
         self.label_info.setText('[在线模式]:'+play_src)
         self.is_working.value=True
         self.playable.value=True
-        for i in self.left_widgets:  # delete all the left_widgets and then replace them with new ones
-            i.setVisible(False)
-            self.left_layout.removeWidget(i)
+        # for i in self.bottom_widgets:  # delete all the left_widgets and then replace them with new ones
+        #     i.setVisible(False)
+        #     self.layout1.removeWidget(i)
+        # self.layout1.addWidget(self.btn_start, 8, 2, 1, 1)
+        # self.layout1.addWidget(self.btn_pause, 8, 4, 1, 1)
+        # self.btn_start.setVisible(True)
+        # self.btn_pause.setVisible(True)
+        self.progressBar.setVisible(False)
+
 
     def restart_online(self,play_src):
         self.play_src.value=play_src
         self.is_working.value = False
         self.playable.value = False
+        self.label_info.setText('[在线模式]:' + play_src)
+        self.progressBar.setVisible(False)
         time.sleep(0.1)
         self.is_working.value = True
         self.playable.value = True
@@ -208,7 +222,17 @@ class Player(QWidget):
         self.label_info.setText('[离线模式]:' + play_src)
         self.is_working.value = True
         self.playable.value = True
+        self.progressBar.setVisible(True)
 
+    def restart_offline(self,play_src):
+        self.play_src.value=play_src
+        self.is_working.value = False
+        self.playable.value = False
+        self.label_info.setText('[离线模式]:' + play_src)
+        self.progressBar.setVisible(True)
+        time.sleep(0.1)
+        self.is_working.value = True
+        self.playable.value = True
 
 
 

@@ -1,7 +1,8 @@
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import QSize, QFile, Qt, QEvent, QPoint, QTimer, pyqtSignal, QCoreApplication
-from PyQt5.QtGui import QIcon, QBrush, QColor, QPainter, QPixmap, QPalette
-from PyQt5.QtWidgets import QMainWindow, QApplication, QMenu, QTreeWidgetItem, QLabel, QSizePolicy, QTreeWidget
+from PyQt5.QtGui import QIcon, QBrush, QColor, QPainter, QPixmap, QPalette, QFont
+from PyQt5.QtWidgets import QMainWindow, QApplication, QMenu, QTreeWidgetItem, QLabel, QSizePolicy, QTreeWidget, \
+    QFileDialog
 from PyQt5 import QtCore
 import sys
 from VideoPlayer import Player
@@ -40,8 +41,14 @@ class MainUi(QtWidgets.QMainWindow):
 
         #顶部的3个部件： 标题，最小化按钮，关闭按钮
         self.label_title=QLabel("")
-        self.label_title.setAlignment(Qt.AlignLeft)
-        self.label_title.setText(u"多路摄像头安全帽检测系统")
+        self.label_title.setAlignment(Qt.AlignCenter)
+        self.label_title.setFont(QFont("Microsoft YaHei",20,QFont.Bold))
+        self.label_title.setText(u"多 路 摄 像 头 安 全 帽 检 测 系 统")
+        pe = QPalette()
+        pe.setColor(QPalette.WindowText, Qt.white)
+        self.label_title.setPalette(pe)
+
+
 
         self.btn_close = QtWidgets.QToolButton()  # 关闭按钮
         self.btn_mini = QtWidgets.QToolButton()  # 最小化按钮
@@ -76,7 +83,7 @@ class MainUi(QtWidgets.QMainWindow):
 
         self.btn_online = QtWidgets.QToolButton()
         self.btn_online.setObjectName('detection_trigger')
-        icon_btn_online=QIcon('GUI/resources/icons/dome-camera1.9.png')           #在线检测的icon
+        icon_btn_online=QIcon('GUI/resources/icons/dome-camera4.1.png')           #在线检测的icon
         self.btn_online.setIcon(icon_btn_online)
         self.btn_online.setIconSize(QSize(120,120))
         # self.btn_online.setText("在线检测")
@@ -87,7 +94,7 @@ class MainUi(QtWidgets.QMainWindow):
 
         self.btn_offline = QtWidgets.QToolButton()
         self.btn_offline.setObjectName('detection_trigger')
-        icon_btn_offline = QIcon('GUI/resources/icons/file3.1.png')  # 在线检测的icon
+        icon_btn_offline = QIcon('GUI/resources/icons/file4.1.png')  # 在线检测的icon
         self.btn_offline.setIcon(icon_btn_offline)
         self.btn_offline.setIconSize(QSize(120, 120))
         # self.btn_offline.setFixedHeight(200)
@@ -155,7 +162,7 @@ QWidget#right_widget{
 
         self.main_widget.setStyleSheet('''
                     QWidget#main_widget{
-            border-image: url(GUI/resources/yellowwhite.jfif);
+            border-image: url(GUI/resources/blue.jfif);
             border-top:1px solid white;
             border-bottom:1px solid white;
             border-left:1px solid white;
@@ -173,7 +180,7 @@ QWidget#right_widget{
         self.right_layout = QtWidgets.QGridLayout()  # 创建右侧部件的网格布局
         self.right_layout.setSpacing(1)
         self.Player1 = Player()
-        # self.Player2 = Player()
+        self.Player2 = Player()
         # self.Player3 = Player()
         # self.Player4 = Player()
         # self.Player5 = Player()
@@ -182,7 +189,7 @@ QWidget#right_widget{
         # self.Player8 = Player()
         # self.Player9 = Player()
 
-        self.Players_list=[self.Player1]
+        self.Players_list=[self.Player1,self.Player2]
 
 
         self.right_widget.setLayout(self.right_layout)  # 设置右侧部件布局为网格
@@ -190,7 +197,7 @@ QWidget#right_widget{
 
 
         self.right_layout.addWidget(self.Player1,0,0)
-        # self.right_layout.addWidget(self.Player2, 0,1)
+        self.right_layout.addWidget(self.Player2, 0,1)
         # self.right_layout.addWidget(self.Player3, 1, 0)
         # self.right_layout.addWidget(self.Player4, 1, 1)
         # self.Player1.init_offline(name)
@@ -221,12 +228,13 @@ QWidget#right_widget{
 
 
     def init_connect(self):
-        self.btn_online.clicked.connect(self.a)
+        self.btn_online.clicked.connect(self.online)
+        self.btn_offline.clicked.connect(self.offline)
         self.btn_mini.clicked.connect(self.showMinimized)
         self.btn_close.clicked.connect(self.close)
 
 
-    def a(self):
+    def online(self):
 
         # self.btn_online.setVisible(False)
         for i in self.left_widgets:
@@ -242,7 +250,7 @@ QWidget#right_widget{
         self.tree.setSizePolicy(QSizePolicy.Fixed,QSizePolicy.Maximum)
         self.tree.setStyleSheet("""QTreeView {
     outline: 10px;
-    background: rgb(255,127,36);
+    background: rgb(95,158,160);
 }
 QTreeView::item {
     min-height: 92px;
@@ -281,6 +289,13 @@ QTreeView::item:selected:active{
 
         self.tree.itemDoubleClicked.connect(self.start_online)
 
+    def offline(self):
+
+        fname, _ = QFileDialog.getOpenFileName(self, '选择图片', 'offline_videos')
+        self.start_offline(fname)
+
+
+
     def start_online(self,item):
         name=item.text(0)
         address=cams[name]
@@ -297,6 +312,20 @@ QTreeView::item:selected:active{
             player = self.Players_list[0]
 
             player.restart_online(address)
+
+    def start_offline(self,address):
+        chosen_index = -1
+        for id, player in enumerate(self.Players_list):
+            if not player.is_working.value:  # found a unoccupied player
+                chosen_index = id
+                break
+        if chosen_index != -1:
+            player = self.Players_list[chosen_index]
+            player.play_src.value = address
+            player.start_offline(address)
+        else:  # no empty player found
+            player = self.Players_list[0]
+            player.restart_offline(address)
 
 
     def close(self):

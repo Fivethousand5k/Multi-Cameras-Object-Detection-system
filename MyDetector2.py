@@ -31,7 +31,7 @@ conf_thres=0.8          #object confidence threshold
 nms_thres=0.4             #iou thresshold for non-maximum suppression
 iou_thres=0.6
 names=['hat','person']
-colors = [[random.randint(0, 255) for _ in range(3)] for _ in range(len(names))]
+colors = [[220,20,60],[25,25,112]]
 class Helmet_Detector2():
     def __init__(self):
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
