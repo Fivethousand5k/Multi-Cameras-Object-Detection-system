@@ -86,6 +86,7 @@ class Player(QWidget):
         self.is_working = Value(c_bool, False)
         manager=Manager()
         self.play_src = manager.Value(c_char_p, 'None')             #用于记录播放的视频地址
+        self.mode = None                # 'online' or 'offline'
 
     def init_connect(self):
         self.btn_pause.clicked.connect(self.pause)
@@ -147,11 +148,12 @@ class Player(QWidget):
         self.mutex.release()
 
     def close(self):
-        self.is_working.value=not self.is_working.value
+        self.is_working.value=False
 
-
+    def play(self):
+        self.playable.value = True
     def pause(self):
-        self.playable.value=not self.playable.value
+        self.playable.value=False
 
     def display(self):
         while True:
@@ -185,12 +187,27 @@ class Player(QWidget):
 
     def start_online(self,play_src):
         self.play_src.value=play_src            #path of online camera
-        self.label_info.setText('[在线模式]:',play_src)
+        self.label_info.setText('[在线模式]:'+play_src)
         self.is_working.value=True
         self.playable.value=True
+        for i in self.left_widgets:  # delete all the left_widgets and then replace them with new ones
+            i.setVisible(False)
+            self.left_layout.removeWidget(i)
+
+    def restart_online(self,play_src):
+        self.play_src.value=play_src
+        self.is_working.value = False
+        self.playable.value = False
+        time.sleep(0.1)
+        self.is_working.value = True
+        self.playable.value = True
+
 
     def start_offline(self,play_src):
-        pass
+        self.play_src.value = play_src  # path of online camera
+        self.label_info.setText('[离线模式]:' + play_src)
+        self.is_working.value = True
+        self.playable.value = True
 
 
 

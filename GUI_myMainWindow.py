@@ -293,16 +293,10 @@ QTreeView::item:selected:active{
             player=self.Players_list[chosen_index]
             player.play_src.value=address
             player.start_online(address)
+        else:                # no empty player found
+            player = self.Players_list[0]
 
-
-
-
-        else:           # all the players are working
-            pass
-
-
-
-
+            player.restart_online(address)
 
 
     def close(self):
