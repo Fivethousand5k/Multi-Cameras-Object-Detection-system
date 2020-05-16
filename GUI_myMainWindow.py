@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import QSize, QFile, Qt, QEvent, QPoint, QTimer, pyqtSignal, QCoreApplication
-from PyQt5.QtGui import QIcon, QBrush, QColor, QPainter, QPixmap, QPalette, QFont
+from PyQt5.QtGui import QIcon, QBrush, QColor, QPainter, QPixmap, QPalette, QFont, QCursor
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMenu, QTreeWidgetItem, QLabel, QSizePolicy, QTreeWidget, \
     QFileDialog
 from PyQt5 import QtCore
@@ -350,6 +350,25 @@ QTreeView::item:selected:active{
 
         for player in self.Players_list:
             self.right_layout.addWidget(player)
+
+
+
+    #下面三个函数用于实现界面拖拽
+    def mousePressEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            self.m_flag = True
+            self.m_Position = event.globalPos() - self.pos()  # 获取鼠标相对窗口的位置
+            event.accept()
+            self.setCursor(QCursor(Qt.OpenHandCursor))  # 更改鼠标图标
+
+    def mouseMoveEvent(self, QMouseEvent):
+        if Qt.LeftButton and self.m_flag:
+            self.move(QMouseEvent.globalPos() - self.m_Position)  # 更改窗口位置
+            QMouseEvent.accept()
+
+    def mouseReleaseEvent(self, QMouseEvent):
+        self.m_flag = False
+        self.setCursor(QCursor(Qt.ArrowCursor))
 
 
 
