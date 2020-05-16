@@ -158,8 +158,16 @@ class Player(QWidget):
 
     def play(self):
         self.playable.value = True
+        temp_str = self.label_info.text()
+        if '[暂停]' in temp_str:
+            temp_str =temp_str.replace('[暂停]','')
+        self.label_info.setText(temp_str)
     def pause(self):
         self.playable.value=False
+        temp_str=self.label_info.text()
+        if '[暂停]' not in temp_str:
+            temp_str='[暂停]'+temp_str
+        self.label_info.setText(temp_str)
 
     def display(self):
         while True:

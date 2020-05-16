@@ -232,7 +232,29 @@ QWidget#right_widget{
         self.btn_offline.clicked.connect(self.offline)
         self.btn_mini.clicked.connect(self.showMinimized)
         self.btn_close.clicked.connect(self.close)
+        self.right_widget.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.right_widget.customContextMenuRequested.connect(
+            self.change_window_menu)  # 当在gBoxMain区域内点击右键时，调用用户自定义的函数 custom_right_menu
 
+    def change_window_menu(self, pos):  # 处理在视频显示区的右键菜单显示
+        menu = QMenu()
+        opt1 = menu.addAction("切换到1画面")
+        opt2 = menu.addAction("切换到2画面")
+        opt3 = menu.addAction("切换到3画面")
+        opt4 = menu.addAction("切换到4画面")
+        num=1
+        action = menu.exec_(self.right_widget.mapToGlobal(pos))
+        if action == opt1:
+            num=1
+        elif action == opt2:
+            num=2
+        elif action == opt3:
+            num=3
+        elif action == opt4:
+            num=4
+        else:           #点击了空白处
+            return
+        self.change_num_of_players(num)         #切换屏幕数量
 
     def online(self):
 
@@ -344,12 +366,16 @@ QTreeView::item:selected:active{
         self.left_widgets = [self.left_widget_logoarea, self.btn_online, self.btn_offline]
 
 
-    def change_to_9_screens(self):
-        for i in range(self.right_layout.count()):                        #首先清空layout内所有的widget
-            self.right_layout.itemAt(i).widget().deleteLater()
+    def change_num_of_players(self,num):
+        for i,player in enumerate(self.Players_list):   #i start with 0
+            if i+1 <= num:
+                player.play()
+                player.setVisible(True)
+            else:
+                player.pause()
+                player.setVisible(False)
 
-        for player in self.Players_list:
-            self.right_layout.addWidget(player)
+
 
 
 
