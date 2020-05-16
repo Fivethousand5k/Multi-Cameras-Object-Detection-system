@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eaa81dd3-6a31-4335-8941-a228522e1ab9" name="Default Changelist" comment="主界面UI">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI_myMainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_myMainWindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyDetector2.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyDetector2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online_cam_addresses.py" beforeDir="false" afterPath="$PROJECT_DIR$/Online_cam_addresses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Processor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VideoPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/VideoPlayer.py" afterDir="false" />
-    </list>
+    <list default="true" id="eaa81dd3-6a31-4335-8941-a228522e1ab9" name="Default Changelist" comment="主界面UI" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
