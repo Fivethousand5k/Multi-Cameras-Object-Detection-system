@@ -16,13 +16,14 @@ from Processor import detector,play
 
 
 class Player(QWidget):
-    def __init__(self,parent=None):
+    def __init__(self,external_mutex,parent=None):
         super(Player, self).__init__(parent)
         self.init_UI()
         self.init_data()
         self.init_process()
         self.init_connect()
         self.init_offline()
+        self.external_mutex=external_mutex
 
     def init_UI(self):
         self.layout1=QtWidgets.QGridLayout()  # 创建主部件的网格布局
@@ -171,7 +172,10 @@ class Player(QWidget):
 
     def display(self):
         while True:
+            start_time=time.time()
+
             if self.is_working.value:
+                self.external_mutex.acquire()
                 if not self.result_img_q.empty():
                     prev = time.time()
                     show=self.result_img_q.get()
@@ -183,6 +187,10 @@ class Player(QWidget):
                     self.label_screen.setScaledContents(True)
 
                     self.label_screen.setPixmap(QPixmap.fromImage(showImage))  #
+                    print("FPS: ", 1.0 / (time.time() - start_time))  # FPS = 1 / time to process loop
+
+                self.external_mutex.release()
+
             else:
                 time.sleep(0.1)
 
@@ -201,6 +209,7 @@ class Player(QWidget):
 
     def start_online(self,play_src):
         self.play_src.value=play_src            #path of online camera
+        play_src='0'
         self.label_info.setText('[在线模式]:'+play_src)
         self.is_working.value=True
         self.playable.value=True
@@ -216,6 +225,7 @@ class Player(QWidget):
 
     def restart_online(self,play_src):
         self.play_src.value=play_src
+        play_src = '0'
         self.is_working.value = False
         self.playable.value = False
         self.label_info.setText('[在线模式]:' + play_src)

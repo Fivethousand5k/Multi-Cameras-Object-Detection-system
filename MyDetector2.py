@@ -25,11 +25,11 @@ from matplotlib.ticker import NullLocator
 
 class_path='helmet_detector2/data/custom/classes.names'
 model_def='helmet_detector2/cfg/yolov3-spp.cfg'
-weights_path='helmet_detector2/weights/best_yolov3-ul.pt'
+weights_path='E:\python-tasks\yolo_v3(2)\weights\\best_yolov3-ul.pt'
 img_size=416
-conf_thres=0.8          #object confidence threshold
+conf_thres=0.25         #object confidence threshold
 nms_thres=0.4             #iou thresshold for non-maximum suppression
-iou_thres=0.6
+iou_thres=0.5
 names=['hat','person']
 colors = [[220,20,60],[25,25,112]]
 class Helmet_Detector2():
@@ -50,7 +50,7 @@ class Helmet_Detector2():
         img = torch.from_numpy(img).to(self.device).float()
         img /= 255.0
         pred = self.model(img)[0]
-        # Apply NMS
+        # # Apply NMS
         pred = non_max_suppression(pred, conf_thres, iou_thres)
 
         if pred[0] is not None:
@@ -63,6 +63,25 @@ class Helmet_Detector2():
 
         return input_img
 
+    def get_label_and_pos(self,input_img):
+        img = [letterbox(input_img, new_shape=img_size, interp=cv2.INTER_LINEAR)[0]]
+        # Stack
+        img = np.stack(img, 0)
+        img = img[:, :, :, ::-1].transpose(0, 3, 1, 2)  # BGR to RGB, to bsx3x416x416
+        img = np.ascontiguousarray(img)
+        img = torch.from_numpy(img).to(self.device).float()
+        img /= 255.0
+        pred = self.model(img)[0]
+        # Apply NMS
+        pred = non_max_suppression(pred, conf_thres, iou_thres)
+
+        if pred[0] is not None:
+            det=pred[0]
+            # Rescale boxes from img_size to im0 size
+            det[:, :4] = scale_coords(img.shape[2:], det[:, :4], input_img.shape).round()
+            return det
+        else:
+           return None
 
 def scale_coords(img1_shape, coords, img0_shape, ratio_pad=None):
     # Rescale coords (xyxy) from img1_shape to img0_shape

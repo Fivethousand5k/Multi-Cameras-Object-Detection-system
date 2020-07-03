@@ -1,4 +1,4 @@
-from MyDetector import Helmet_Detector
+from MyDetector2 import Helmet_Detector2
 import threading
 import multiprocessing as mp
 from multiprocessing import Process
@@ -11,87 +11,73 @@ import os
 
 names=['hat','person']
 colors=[[144, 238, 144],[220,20,60]]
-def save(dataset_dir,img_name,img,detections):
-    imgs_dir=os.path.join(dataset_dir,'imgs')
-    labels_dir = os.path.join(dataset_dir, 'labels')
-    imgfile_name=os.path.join(imgs_dir,img_name+'.jpg')
+def save(label_dir,img_name,img,detections):
 
-    if not os.path.exists( imgs_dir):
-        os.mkdir(imgs_dir)
-    if not os.path.exists(labels_dir):
-        os.mkdir(labels_dir)
-    txt_path = os.path.join(labels_dir, img_name + '.txt')
+
+    txt_path = os.path.join(label_dir, img_name + '.txt')
     label_txt = open(txt_path, 'w')
-    for x1, y1, x2, y2, conf, cls_conf, cls_pred in detections:
-        img_height, img_width, channels = img.shape
-        center_x = float(((x1 + x2) / 2) / img_width)
-        center_y = float(((y1 + y2) / 2) / img_height)
-        width = float((x2 - x1) / img_width)
-        height = float((y2 - y1) / img_height)
-        label = int(cls_pred)
-        output = [str(label), str(round(center_x,4)), str(round(center_y,4)), str(round(width,4)), str(round(height,4))]
-        temp_str = " ".join(output)
-        label_txt.write(temp_str + '\n')
+    if detections is not None:
+        for x1, y1, x2, y2, conf, cls_pred in detections:
+            img_height, img_width, channels = img.shape
+            center_x = float(((x1 + x2) / 2) / img_width)
+            center_y = float(((y1 + y2) / 2) / img_height)
+            width = float((x2 - x1) / img_width)
+            height = float((y2 - y1) / img_height)
+            if center_x<=0 or center_y <=0 or width<=0 or height <=0:
+                print("break")
+                continue
+            label = int(cls_pred)
+            output = [str(label), str(round(center_x,4)), str(round(center_y,4)), str(round(width,4)), str(round(height,4))]
+            temp_str = " ".join(output)
+            label_txt.write(temp_str + '\n')
     label_txt.close()
-    cv2.imwrite(imgfile_name,img)
+
+def save2(label_dir,img_name,img,detections):
+
+    txt_path = os.path.join(label_dir, img_name + '.txt')
+    label_txt = open(txt_path, 'w')
+    if detections is not None:
+        for x1, y1, x2, y2, conf, cls_pred in detections:
+            x1=float(x1)
+            y1=float(y1)
+            x2=float(x2)
+            y2=float(y2)
+            conf=float(conf)
+            if x1<=0 or y1<=0 or x2<=0 or y2<=0:
+                print("break")
+                continue
+            label = names[int(cls_pred)]
+            output = [str(label),str(round(conf,3)),str(round(x1,2)), str(round(y1,2)), str(round(x2,2)), str(round(y2,2))]
+            temp_str = " ".join(output)
+            label_txt.write(temp_str + '\n')
+    label_txt.close()
 
 
 def play():
-    dataset_dir='home-made-datasets/person_carrying_a_hat'   #under this dir, there are 2 sub dir: ' imgs' and ' labels'
-    name_prefix="a"
-    num=150   # collect 500 photos
-    if not os.path.exists(dataset_dir):
-        os.mkdir(dataset_dir)
+
+    save_dataset_dir='E:\Datasets\Safety-helmet-test-dataset'   #under this dir, initially, there is only one sub dir named imgs
+    imgs_dir=os.path.join(save_dataset_dir,'imgs')
+    labels_dir=os.path.join(save_dataset_dir,'labels2')  #label file generated would be saved there
+    if not os.path.exists(labels_dir):
+        os.mkdir(labels_dir)
+    imgs_list=sorted(os.listdir(imgs_dir))
+    imgs_list=['test_000041.jpg']
+    print(imgs_list)
+    helmet_detector = Helmet_Detector2()
 
 
-
-    videocap = cv2.VideoCapture(0)
-    helmet_detector = Helmet_Detector()
-    window_name="video"
-    cv2.namedWindow(window_name, flags=cv2.WINDOW_FREERATIO)
     # videocap.set(cv2.CAP_PROP_POS_FRAMES,3000)
-    count=121
-    save_prev_time=datetime.datetime.now()
-    while True:  # 点击pause按钮时，playable会被设置成False
-        flag, frame = videocap.read()
+
+    for img in imgs_list:
+        print(img)
+        img_name=img[0:-4]
+        img_path=os.path.join(imgs_dir,img)
+        img= cv2.imread(img_path)
         # time.sleep(self.interval)
-        if flag:  # The frame is ready and already captured
-            # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)  # 将BGR转化成RGB
-            origin_frame=np.copy(frame)
-            detections=helmet_detector.get_label_and_pos(frame)
-            save_tag=False
-            if detections[0] is not None:
-                for x1, y1, x2, y2, conf, cls_conf, cls_pred in detections:
-                    if int(cls_pred) is 0 and (datetime.datetime.now() - save_prev_time).seconds > 1:
-                        save_tag=True
-                    cv2.rectangle(frame, (x1, y1), (x2, y2), colors[int(cls_pred)], 10)
-                    cv2.putText(frame, names[int(cls_pred)], (x1, y1 - 10), cv2.FONT_HERSHEY_PLAIN, 3,
-                                colors[int(cls_pred)], 2)
-                if save_tag:
-                    save(dataset_dir=dataset_dir, img_name=name_prefix +"_"+str(count), img=origin_frame,
-                         detections=detections)
-                    count += 1
-                    save_prev_time=datetime.datetime.now()
-            cv2.putText(frame, "count:" + str(count), (10, 50), cv2.FONT_HERSHEY_PLAIN, 3,
-                        colors[0], 2)
-            if count>num:
-                temp_str="Having collected sufficient images"
-                print(temp_str)
-                classes_txt = open(os.path.join(dataset_dir,"labels", "classes.txt"), 'w')
-                for name in names:
-                    classes_txt.write(name + '\n')
-                classes_txt.close()
-                cv2.putText(frame, temp_str, (50, 50), cv2.FONT_HERSHEY_PLAIN, 2,
-                            colors[0], 2)
-                cv2.imshow(window_name, frame)
-                break
-            cv2.imshow(window_name, frame)
-            cv2.waitKey(1)
+        save_tag=True
+        detections = helmet_detector.get_label_and_pos(img)
+        if save_tag:
+            save2(label_dir=labels_dir,img_name=img_name,img=img,detections=detections)
 
-        else:  # 如果当前视频播放完毕
-            break
-
-            # playable=False
-            # break
 
 play()

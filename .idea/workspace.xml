@@ -4,7 +4,10 @@
     <list default="true" id="eaa81dd3-6a31-4335-8941-a228522e1ab9" name="Default Changelist" comment="主界面UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI_myMainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_myMainWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyDetector2.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyDetector2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Processor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VideoPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/VideoPlayer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/label_img_auto.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/label_img_auto（video）.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,9 +41,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/GUI/resources/icons" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -49,11 +52,11 @@
       <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\python-tasks\WHU-CSTECH\offline_videos" />
+      <recent name="E:\python-tasks\WHU-CSTECH\helmet_detector2\weights\models" />
       <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources\icons" />
       <recent name="E:\python-tasks\WHU-CSTECH\GUI\resources\Fonts" />
       <recent name="E:\python-tasks\WHU-CSTECH" />
-      <recent name="E:\python-tasks\WHU-CSTECH\offline_videos" />
-      <recent name="E:\python-tasks\WHU-CSTECH\helmet_detector\checkpoints" />
     </key>
   </component>
   <component name="RunManager" selected="Python.GUI_myMainWindow (1)">
@@ -78,7 +81,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="MyDetector2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="check_labels" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="WHU-CSTECH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -86,11 +89,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MyDetector2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/check_labels.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -99,7 +102,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Processor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="experiment" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="WHU-CSTECH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -111,7 +114,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Processor.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/experiment.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -141,7 +144,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_realtime" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="label_img_auto（video）" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="WHU-CSTECH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -149,11 +152,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/test_realtime.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/label_img_auto（video）.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -164,18 +167,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.GUI_myMainWindow (1)" />
-      <item itemvalue="Python.Processor" />
-      <item itemvalue="Python.test_realtime" />
       <item itemvalue="Python.label_img_auto" />
-      <item itemvalue="Python.MyDetector2" />
+      <item itemvalue="Python.check_labels" />
+      <item itemvalue="Python.experiment" />
+      <item itemvalue="Python.label_img_auto（video）" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.GUI_myMainWindow (1)" />
-        <item itemvalue="Python.MyDetector2" />
-        <item itemvalue="Python.test_realtime" />
+        <item itemvalue="Python.label_img_auto（video）" />
+        <item itemvalue="Python.experiment" />
+        <item itemvalue="Python.check_labels" />
         <item itemvalue="Python.label_img_auto" />
-        <item itemvalue="Python.Processor" />
       </list>
     </recent_temporary>
   </component>
@@ -261,78 +264,66 @@
     <option name="LAST_COMMIT_MESSAGE" value="主界面UI" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="60" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586243581349">
+    <state x="223" y="60" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593615000840">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="60" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1586243581349" />
+    <state x="223" y="60" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1593615000840" />
     <state x="481" y="198" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589619090883">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="481" y="198" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1589619090883" />
-    <state x="505" y="48" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1583412613130">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="505" y="48" key="#com.intellij.ide.macro.MacrosDialog/0.0.1536.824@0.0.1536.824" timestamp="1583412613130" />
-    <state x="523" y="207" key="#com.intellij.tools.ToolEditorDialog" timestamp="1583420785452">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="523" y="207" key="#com.intellij.tools.ToolEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1583420785452" />
     <state x="343" y="0" width="932" height="824" key="CommitChangelistDialog2" timestamp="1585626424050">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="343" y="0" width="932" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585626424050" />
-    <state width="1392" height="546" key="DebuggerActiveHint" timestamp="1584863239923">
+    <state x="499" y="110" key="FileChooserDialogImpl" timestamp="1593614999739">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1392" height="546" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1584863239923" />
-    <state x="499" y="110" key="FileChooserDialogImpl" timestamp="1588650421132">
+    <state x="499" y="110" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593614999739" />
+    <state width="1510" height="216" key="GridCell.Tab.0.bottom" timestamp="1593776730303">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="110" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588650421132" />
-    <state width="1510" height="203" key="GridCell.Tab.0.bottom" timestamp="1589637634598">
+    <state width="1510" height="216" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593776730303" />
+    <state width="1510" height="216" key="GridCell.Tab.0.center" timestamp="1593776730303">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="203" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589637634598" />
-    <state width="1510" height="203" key="GridCell.Tab.0.center" timestamp="1589637634598">
+    <state width="1510" height="216" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593776730303" />
+    <state width="1510" height="216" key="GridCell.Tab.0.left" timestamp="1593776730303">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="203" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589637634598" />
-    <state width="1510" height="203" key="GridCell.Tab.0.left" timestamp="1589637634598">
+    <state width="1510" height="216" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593776730303" />
+    <state width="1510" height="216" key="GridCell.Tab.0.right" timestamp="1593776730303">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="203" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589637634598" />
-    <state width="1510" height="203" key="GridCell.Tab.0.right" timestamp="1589637634598">
+    <state width="1510" height="216" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593776730303" />
+    <state width="1510" height="288" key="GridCell.Tab.1.bottom" timestamp="1593697785635">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="203" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589637634598" />
-    <state width="1510" height="288" key="GridCell.Tab.1.bottom" timestamp="1589629994659">
+    <state width="1510" height="288" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593697785635" />
+    <state width="1510" height="288" key="GridCell.Tab.1.center" timestamp="1593697785635">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="288" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589629994659" />
-    <state width="1510" height="288" key="GridCell.Tab.1.center" timestamp="1589629994658">
+    <state width="1510" height="288" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1593697785635" />
+    <state width="1510" height="288" key="GridCell.Tab.1.left" timestamp="1593697785635">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="288" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1589629994658" />
-    <state width="1510" height="288" key="GridCell.Tab.1.left" timestamp="1589629994658">
+    <state width="1510" height="288" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1593697785635" />
+    <state width="1510" height="288" key="GridCell.Tab.1.right" timestamp="1593697785635">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="288" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1589629994658" />
-    <state width="1510" height="288" key="GridCell.Tab.1.right" timestamp="1589629994658">
+    <state width="1510" height="288" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1593697785635" />
+    <state x="154" y="0" key="SettingsEditor" timestamp="1593614992034">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1510" height="288" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1589629994658" />
-    <state x="154" y="0" key="SettingsEditor" timestamp="1586243575345">
+    <state x="154" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1593614992034" />
+    <state x="536" y="310" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589823248843">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="154" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1586243575345" />
-    <state x="261" y="80" key="Vcs.Push.Dialog.v2" timestamp="1583474433881">
+    <state x="536" y="310" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1589823248843" />
+    <state x="347" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1590110476380">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="261" y="80" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1583474433881" />
-    <state x="347" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1589636972219">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="347" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1589636972219" />
+    <state x="347" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1590110476379" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -348,8 +339,8 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tools/label_img_auto.py</url>
-          <line>55</line>
+          <url>file://$PROJECT_DIR$/tools/label_img_auto（video）.py</url>
+          <line>52</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -358,14 +349,29 @@
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI_myMainWindow.py</url>
-          <line>321</line>
-          <option name="timeStamp" value="20" />
+          <url>file://$PROJECT_DIR$/VideoPlayer.py</url>
+          <line>210</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VideoPlayer.py</url>
-          <line>202</line>
-          <option name="timeStamp" value="21" />
+          <url>file://$PROJECT_DIR$/tools/label_img_auto.py</url>
+          <line>26</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tools/label_img_auto.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tools/check_labels.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/experiment.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

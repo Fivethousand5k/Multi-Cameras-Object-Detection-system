@@ -1,3 +1,6 @@
+import threading
+import time
+
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import QSize, QFile, Qt, QEvent, QPoint, QTimer, pyqtSignal, QCoreApplication
 from PyQt5.QtGui import QIcon, QBrush, QColor, QPainter, QPixmap, QPalette, QFont, QCursor
@@ -7,8 +10,7 @@ from PyQt5 import QtCore
 import sys
 from VideoPlayer import Player
 from Online_cam_addresses import cams
-import sip
-import qtawesome
+
 
 
 MaxNumOfVideo=9    #最大支持播放数量
@@ -179,8 +181,11 @@ QWidget#right_widget{
         #右侧播放界面设置
         self.right_layout = QtWidgets.QGridLayout()  # 创建右侧部件的网格布局
         self.right_layout.setSpacing(1)
-        self.Player1 = Player()
-        self.Player2 = Player()
+        self.mutex1 = threading.Lock()
+        self.mutex2 = threading.Lock()
+        self.mutex_list=[self.mutex1,self.mutex2]
+        self.Player1 = Player(external_mutex=self.mutex1)
+        self.Player2 = Player(external_mutex=self.mutex2)
         # self.Player3 = Player()
         # self.Player4 = Player()
         # self.Player5 = Player()
@@ -369,6 +374,7 @@ QTreeView::item:selected:active{
     def change_num_of_players(self,num):
         for i,player in enumerate(self.Players_list):   #i start with 0
             if i+1 <= num:
+                pass
                 player.play()
                 player.setVisible(True)
             else:

@@ -13,7 +13,7 @@ def detector(origin_img_q=None, result_img_q=None):
     helmet_detector = Helmet_Detector2()
     while True:
         while origin_img_q.qsize() == 0:
-            time.sleep(0.05)
+            time.sleep(0.01)
         origin_img = origin_img_q.get()
         result_img = helmet_detector.detect(origin_img)
         result_img_q.put(result_img)
@@ -42,11 +42,12 @@ def play(q_put, frame_index, share_lock, frame_total, is_change_bar, playable, i
                     # time.sleep(self.interval)
                     if flag:  # The frame is ready and already captured
                         show = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)  # 将BGR转化成RGB
-                        time.sleep(0.05)
+                        # time.sleep(0.05)
                         # show = cv2.resize(frame, (int(self.label_screen.width() * 0.5), int(self.label_screen.height() * 0.5)),
                         #                    interpolation=cv2.INTER_AREA)
-                        q_put.put(show)
-                        q_put.get() if q_put.qsize() > 1 else None
+                        if q_put.qsize() <= 2:
+                          q_put.put(show)
+                        # q_put.get() if q_put.qsize() > 1 else None
                         share_lock.acquire()
                         frame_index.value += 1
                         share_lock.release()
@@ -64,8 +65,8 @@ def play(q_put, frame_index, share_lock, frame_total, is_change_bar, playable, i
             videocap.release()
 
         while not is_working.value:
-            time.sleep(0.1)
-            print("not working")
+            time.sleep(0.01)
+            # print("not working")
 
 
 if __name__ == '__main__':
